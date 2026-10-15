@@ -3,73 +3,95 @@
 import { useState } from "react";
 import { site } from "@/data/site";
 
-type Status = "idle" | "ready";
+type Status = "idle" | "loading" | "success" | "error";
+
+function encode(data: Record<string, string>) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setStatus("loading");
+
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const name = String(data.get("name") ?? "").trim();
-    const email = String(data.get("email") ?? "").trim();
-    const phone = String(data.get("phone") ?? "").trim();
-    const subject = String(data.get("subject") ?? "").trim();
-    const message = String(data.get("message") ?? "").trim();
+    // Netlify bot tuzağı doluysa (spam) sessizce başarı göster.
+    if (String(data.get("bot-field") ?? "")) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
 
-    const mailSubject = subject
-      ? `İletişim Formu — ${subject}`
-      : `İletişim Formu — ${name}`;
+    const payload: Record<string, string> = {
+      "form-name": "contact",
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      subject: String(data.get("subject") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
 
-    const body = [
-      `Ad Soyad: ${name}`,
-      `E-posta: ${email}`,
-      phone ? `Telefon: ${phone}` : null,
-      subject ? `Konu: ${subject}` : null,
-      "",
-      "Mesaj:",
-      message,
-    ]
-      .filter((line) => line !== null)
-      .join("\n");
-
-    const mailto = `${site.contact.emailHref}?subject=${encodeURIComponent(
-      mailSubject
-    )}&body=${encodeURIComponent(body)}`;
-
-    // Kullanıcının varsayılan e-posta uygulamasını, bilgiler dolu olarak açar.
-    window.location.href = mailto;
-    setStatus("ready");
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(payload),
+      });
+      if (!res.ok) throw new Error("Gönderim başarısız.");
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (status === "ready") {
+  if (status === "success") {
     return (
       <div className="border border-line bg-bg-2 p-8">
-        <p className="font-display text-2xl">E-posta uygulamanız açıldı.</p>
+        <p className="font-display text-2xl">Mesajınız gönderildi.</p>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          Mesajınız hazır olarak e-posta uygulamanıza aktarıldı. Göndermek için
-          yalnızca &quot;Gönder&quot;e basmanız yeterli. E-posta uygulaması açılmadıysa
-          doğrudan{" "}
+          Mesajınız Kuk İnşaat ekibine ulaştı. En kısa sürede size dönüş yapacağız.
+          Dilerseniz doğrudan{" "}
           <a href={site.contact.emailHref} className="text-ink underline underline-offset-4">
             {site.contact.email}
           </a>{" "}
-          adresine yazabilirsiniz.
+          adresinden de yazabilirsiniz.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-6 text-sm text-ink underline-offset-4 hover:underline"
         >
-          Formu tekrar doldur
+          Yeni mesaj gönder
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6" noValidate>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={onSubmit}
+      className="space-y-6"
+      noValidate
+    >
+      {/* Netlify için gerekli gizli alanlar */}
+      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden">
+        <label>
+          Boş bırakın: <input name="bot-field" />
+        </label>
+      </p>
+
       <div className="grid gap-6 md:grid-cols-2">
         <label className="block">
           <span className="text-xs uppercase tracking-[0.2em] text-muted">Ad Soyad</span>
@@ -118,16 +140,23 @@ export function ContactForm() {
         />
       </label>
 
+      {status === "error" && (
+        <p className="text-sm text-red-700" role="alert">
+          Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin ya da doğrudan{" "}
+          <a href={site.contact.emailHref} className="underline">
+            {site.contact.email}
+          </a>{" "}
+          adresine yazın.
+        </p>
+      )}
+
       <button
         type="submit"
-        className="inline-flex items-center justify-center bg-ink px-6 py-3 text-sm text-bg transition-colors hover:bg-accent"
+        disabled={status === "loading"}
+        className="inline-flex items-center justify-center bg-ink px-6 py-3 text-sm text-bg transition-colors hover:bg-accent disabled:opacity-60"
       >
-        Mesajı gönder
+        {status === "loading" ? "Gönderiliyor..." : "Mesajı gönder"}
       </button>
-      <p className="text-xs leading-relaxed text-muted">
-        Gönder&apos;e bastığınızda mesajınız, bilgileriniz dolu olarak e-posta
-        uygulamanızda açılır ve doğrudan {site.contact.email} adresine iletilir.
-      </p>
     </form>
   );
 }
