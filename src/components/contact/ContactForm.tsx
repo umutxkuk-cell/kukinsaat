@@ -1,58 +1,68 @@
 "use client";
 
 import { useState } from "react";
+import { site } from "@/data/site";
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "ready";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [error, setError] = useState<string | null>(null);
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
-    setError(null);
     const form = e.currentTarget;
     const data = new FormData(form);
-    const payload = {
-      name: String(data.get("name") ?? ""),
-      email: String(data.get("email") ?? ""),
-      phone: String(data.get("phone") ?? ""),
-      subject: String(data.get("subject") ?? ""),
-      message: String(data.get("message") ?? ""),
-    };
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const json = await res.json();
-      if (!res.ok || !json.ok) {
-        throw new Error(json.error ?? "Gönderim başarısız.");
-      }
-      setStatus("success");
-      form.reset();
-    } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Beklenmeyen bir hata oluştu.");
-    }
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const phone = String(data.get("phone") ?? "").trim();
+    const subject = String(data.get("subject") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+
+    const mailSubject = subject
+      ? `İletişim Formu — ${subject}`
+      : `İletişim Formu — ${name}`;
+
+    const body = [
+      `Ad Soyad: ${name}`,
+      `E-posta: ${email}`,
+      phone ? `Telefon: ${phone}` : null,
+      subject ? `Konu: ${subject}` : null,
+      "",
+      "Mesaj:",
+      message,
+    ]
+      .filter((line) => line !== null)
+      .join("\n");
+
+    const mailto = `${site.contact.emailHref}?subject=${encodeURIComponent(
+      mailSubject
+    )}&body=${encodeURIComponent(body)}`;
+
+    // Kullanıcının varsayılan e-posta uygulamasını, bilgiler dolu olarak açar.
+    window.location.href = mailto;
+    setStatus("ready");
   }
 
-  if (status === "success") {
+  if (status === "ready") {
     return (
       <div className="border border-line bg-bg-2 p-8">
-        <p className="font-display text-2xl">Mesajınız alındı.</p>
-        <p className="mt-3 text-sm text-muted">
-          Mesajınız Kuk İnşaat ekibine ulaştı. En kısa sürede size dönüş yapacağız.
+        <p className="font-display text-2xl">E-posta uygulamanız açıldı.</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted">
+          Mesajınız hazır olarak e-posta uygulamanıza aktarıldı. Göndermek için
+          yalnızca &quot;Gönder&quot;e basmanız yeterli. E-posta uygulaması açılmadıysa
+          doğrudan{" "}
+          <a href={site.contact.emailHref} className="text-ink underline underline-offset-4">
+            {site.contact.email}
+          </a>{" "}
+          adresine yazabilirsiniz.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-6 text-sm text-ink underline-offset-4 hover:underline"
         >
-          Yeni mesaj gönder
+          Formu tekrar doldur
         </button>
       </div>
     );
@@ -108,19 +118,16 @@ export function ContactForm() {
         />
       </label>
 
-      {status === "error" && error && (
-        <p className="text-sm text-red-700" role="alert">
-          {error}
-        </p>
-      )}
-
       <button
         type="submit"
-        disabled={status === "loading"}
-        className="inline-flex items-center justify-center bg-ink px-6 py-3 text-sm text-bg transition-colors hover:bg-accent disabled:opacity-60"
+        className="inline-flex items-center justify-center bg-ink px-6 py-3 text-sm text-bg transition-colors hover:bg-accent"
       >
-        {status === "loading" ? "Gönderiliyor..." : "Mesajı gönder"}
+        Mesajı gönder
       </button>
+      <p className="text-xs leading-relaxed text-muted">
+        Gönder&apos;e bastığınızda mesajınız, bilgileriniz dolu olarak e-posta
+        uygulamanızda açılır ve doğrudan {site.contact.email} adresine iletilir.
+      </p>
     </form>
   );
 }
