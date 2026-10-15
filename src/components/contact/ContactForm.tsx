@@ -38,7 +38,9 @@ export function ContactForm() {
     };
 
     try {
-      const res = await fetch("/", {
+      // POST, Next.js SSR'ın karşıladığı "/" yerine statik "/__forms.html"
+      // dosyasına gönderilir; böylece Netlify'ın form yakalayıcısı devreye girer.
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode(payload),
