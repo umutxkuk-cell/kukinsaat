@@ -5,6 +5,8 @@ import { site } from "@/data/site";
 export const metadata = {
   title: "Gizlilik & KVKK",
   description: "Kuk İnşaat gizlilik ve kişisel verilerin korunması politikası.",
+  alternates: { canonical: "/gizlilik" },
+  robots: { index: false, follow: true },
 };
 
 export default function GizlilikPage() {

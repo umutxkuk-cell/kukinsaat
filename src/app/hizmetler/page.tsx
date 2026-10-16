@@ -8,9 +8,10 @@ import { ServiceIcon } from "@/components/services/ServiceIcon";
 import { services } from "@/data/services";
 
 export const metadata = {
-  title: "Hizmetlerimiz",
+  title: "Hizmetlerimiz — İnşaat, Mühendislik ve Proje Hizmetleri",
   description:
-    "KUK İnşaat; inşaat uygulamaları, mühendislik, proje geliştirme, süreç yönetimi ve teknik danışmanlık hizmetlerini tek çatı altında sunar.",
+    "KUK İnşaat; inşaat ve yapı uygulamaları, mühendislik, proje geliştirme, süreç yönetimi ve teknik danışmanlık hizmetlerini Kocaeli Başiskele'de tek çatı altında sunar.",
+  alternates: { canonical: "/hizmetler" },
 };
 
 const approach = [

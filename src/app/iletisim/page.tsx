@@ -7,7 +7,8 @@ import { site } from "@/data/site";
 export const metadata = {
   title: "İletişim",
   description:
-    "Kuk İnşaat iletişim bilgileri: Ovacık Mah. Çuhane Cad. No:176 Başiskele, Kocaeli — umut@kukinsaat.com",
+    "Kuk İnşaat iletişim bilgileri: Ovacık Mah. Çuhane Cad. No:176 Başiskele, Kocaeli — umut@kukinsaat.com. Projeniz için teklif alın.",
+  alternates: { canonical: "/iletisim" },
 };
 
 export default function IletisimPage() {

@@ -3,8 +3,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProjectsBrowser } from "@/components/projects/ProjectsBrowser";
 
 export const metadata = {
-  title: "Projelerimiz",
-  description: "Proje portföyü ve proje detayları.",
+  title: "Projelerimiz — Tamamlanan ve Devam Eden İşler",
+  description:
+    "KUK İnşaat'ın Kocaeli ve çevresinde yürüttüğü inşaat, yapı uygulaması ve mühendislik projeleri. Güncel işlerimiz ve referanslarımız için bizimle iletişime geçin.",
+  alternates: { canonical: "/projeler" },
 };
 
 export default function ProjelerPage() {

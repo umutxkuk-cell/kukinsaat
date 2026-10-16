@@ -32,7 +32,6 @@ export const metadata: Metadata = {
     "Kuk İnşaat, Kocaeli Başiskele merkezli bir inşaat ve mühendislik firmasıdır. Konut, ticari ve karma kullanımlı yapıların projelendirme ve inşaat süreçlerini tek elden yürütür.",
   keywords: ["Kuk İnşaat", "KUK Proje Mühendislik", "inşaat Kocaeli", "Başiskele inşaat", "mühendislik", "proje geliştirme"],
   metadataBase: new URL(siteUrl),
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -53,20 +52,57 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
+  "@id": `${siteUrl}/#organization`,
   name: "Kuk İnşaat",
   legalName: site.legalName,
   slogan: site.slogan,
   url: siteUrl,
   email: site.contact.email,
   description: site.description,
+  logo: `${siteUrl}/brand/kuk-monogram.svg`,
+  image: `${siteUrl}/opengraph-image`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "Ovacık Mah. Çuhane Cad. No:176",
     addressLocality: "Başiskele",
     addressRegion: "Kocaeli",
+    postalCode: "41140",
     addressCountry: "TR",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 40.725542,
+    longitude: 29.9999255,
+  },
+  hasMap: site.contact.mapsUrl,
+  areaServed: [
+    { "@type": "City", name: "Kocaeli" },
+    { "@type": "AdministrativeArea", name: "Başiskele" },
+  ],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  knowsAbout: [
+    "İnşaat ve yapı uygulamaları",
+    "Mühendislik hizmetleri",
+    "Proje geliştirme ve teknik koordinasyon",
+    "İnşaat proje yönetimi",
+    "Teknik danışmanlık",
+  ],
   sameAs: site.social.map((s) => s.href),
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Kuk İnşaat",
+  inLanguage: "tr-TR",
+  publisher: { "@id": `${siteUrl}/#organization` },
 };
 
 const gtagInit = site.gaId
@@ -108,6 +144,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </body>
     </html>

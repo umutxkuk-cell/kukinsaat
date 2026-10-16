@@ -14,6 +14,7 @@ export const metadata = {
   title: "Kurumsal",
   description:
     "KUK İnşaat (KUK Proje Mühendislik İnşaat Tic. Ltd. Şti.) — Başiskele, Kocaeli merkezli inşaat ve mühendislik firmasının yaklaşımı, değerleri ve kalite anlayışı.",
+  alternates: { canonical: "/kurumsal" },
 };
 
 const values: { icon: ValueIconKey; t: string; d: string }[] = [

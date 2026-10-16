@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/Button";
 import { ServiceIcon } from "@/components/services/ServiceIcon";
 import { services, getService } from "@/data/services";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukinsaat.com";
+
 export async function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
@@ -19,6 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: service.title,
     description: service.summary,
+    alternates: { canonical: `/hizmetler/${service.slug}` },
+    openGraph: {
+      title: `${service.title} | Kuk İnşaat`,
+      description: service.summary,
+      url: `/hizmetler/${service.slug}`,
+    },
   };
 }
 
@@ -34,8 +42,40 @@ export default async function ServiceDetailPage({
   const index = services.findIndex((s) => s.slug === slug);
   const next = services[(index + 1) % services.length];
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.summary,
+    serviceType: service.title,
+    url: `${siteUrl}/hizmetler/${service.slug}`,
+    provider: { "@type": "GeneralContractor", name: "Kuk İnşaat", url: siteUrl },
+    areaServed: [
+      { "@type": "City", name: "Kocaeli" },
+      { "@type": "AdministrativeArea", name: "Başiskele" },
+    ],
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Hizmetlerimiz", item: `${siteUrl}/hizmetler` },
+      { "@type": "ListItem", position: 3, name: service.title, item: `${siteUrl}/hizmetler/${service.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Header */}
       <section className="relative overflow-hidden py-20 md:py-28">
         <div className="dot-grid pointer-events-none absolute inset-0 text-ink/[0.05]" aria-hidden="true" />
