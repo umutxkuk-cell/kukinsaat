@@ -66,9 +66,30 @@ const jsonLd = {
   sameAs: site.social.map((s) => s.href),
 };
 
+const consentDefault = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied'
+  });
+  try {
+    if (localStorage.getItem('kuk-cookie-consent') === 'accepted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  } catch (e) {}
+`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="tr" className={`${display.variable} ${sans.variable}`}>
+      <head>
+        {/* Google Consent Mode — GA yüklenmeden ÖNCE varsayılan olarak izinleri reddet.
+            Ziyaretçi onay verince analytics_storage 'granted' olur. */}
+        <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
+      </head>
       <body className="bg-bg text-ink antialiased">
         <a href="#main" className="skip-link">
           İçeriğe atla

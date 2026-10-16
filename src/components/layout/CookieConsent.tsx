@@ -7,13 +7,26 @@ import { site } from "@/data/site";
 
 const STORAGE_KEY = "kuk-cookie-consent"; // "accepted" | "declined"
 
+type Gtag = (...args: unknown[]) => void;
+
+function updateConsent(granted: boolean) {
+  const w = window as typeof window & { gtag?: Gtag; dataLayer?: unknown[] };
+  if (typeof w.gtag === "function") {
+    w.gtag("consent", "update", {
+      analytics_storage: granted ? "granted" : "denied",
+    });
+  }
+}
+
 /**
- * KVKK/GDPR uyumlu çerez onayı.
- * Google Analytics yalnızca ziyaretçi onay verdikten sonra yüklenir.
- * Tercih tarayıcıda saklanır; bir daha sorulmaz (değiştirmek isteyen temizler).
+ * KVKK/GDPR uyumlu çerez onayı — Google Consent Mode ile.
+ *
+ * Google Analytics etiketi her zaman yüklenir (Google'ın "etiket algılandı"
+ * doğrulaması için gerekli). Ancak analitik verisi YALNIZCA ziyaretçi onay
+ * verdiğinde toplanır: onaya kadar `analytics_storage` 'denied' durumundadır
+ * (varsayılan layout'ta tanımlı). "Kabul et" denince 'granted' olur.
  */
 export function CookieConsent() {
-  const [decision, setDecision] = useState<"accepted" | "declined" | null>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -23,11 +36,8 @@ export function CookieConsent() {
     } catch {
       stored = null;
     }
-    // State güncellemelerini effect gövdesinden ayır (cascading render'ı önler).
     const t = window.setTimeout(() => {
-      if (stored === "accepted" || stored === "declined") {
-        setDecision(stored);
-      } else {
+      if (stored !== "accepted" && stored !== "declined") {
         setVisible(true);
       }
     }, 500);
@@ -40,16 +50,16 @@ export function CookieConsent() {
     } catch {
       /* storage engellenmişse yoksay */
     }
-    setDecision(value);
+    updateConsent(value === "accepted");
     setVisible(false);
   }
 
   return (
     <>
-      {/* Onay verildiyse Google Analytics'i yükle */}
-      {decision === "accepted" && site.gaId ? <GoogleAnalytics gaId={site.gaId} /> : null}
+      {/* GA etiketi her zaman yüklenir; veri toplama Consent Mode ile yönetilir. */}
+      {site.gaId ? <GoogleAnalytics gaId={site.gaId} /> : null}
 
-      {visible && decision === null && (
+      {visible && (
         <div
           className="fixed inset-x-0 bottom-0 z-[70] px-4 pb-4"
           role="dialog"

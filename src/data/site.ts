@@ -5,7 +5,7 @@ export const site = {
   slogan: "Kaliteyle Kurulur",
   tagline: "Kaliteyle Kurulur.",
   // Google Analytics 4 ölçüm kimliği (GA4 Measurement ID)
-  gaId: "G-JM9SZ63YJ5",
+  gaId: "G-EFGSKFKXBM",
   description:
     "KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe değer üretmeyi hedefler. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir araya getirerek her projede nitelikli ve kalıcı çözümler geliştirir.",
   locationLabel: "Başiskele / Kocaeli",
