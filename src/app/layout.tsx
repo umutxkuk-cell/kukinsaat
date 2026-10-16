@@ -25,7 +25,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukinsaat.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "Kuk İnşaat — İnşaat, Proje & Mühendislik | Kocaeli",
+    default: "Kuk İnşaat",
     template: "%s | Kuk İnşaat",
   },
   description:
@@ -58,6 +58,7 @@ const jsonLd = {
   slogan: site.slogan,
   url: siteUrl,
   email: site.contact.email,
+  telephone: site.contact.phone,
   description: site.description,
   logo: `${siteUrl}/brand/kuk-monogram.svg`,
   image: `${siteUrl}/opengraph-image`,

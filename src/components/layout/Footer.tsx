@@ -73,6 +73,11 @@ export function Footer() {
             <address className="mt-5 space-y-4 text-sm not-italic leading-relaxed text-bg/75">
               <p>{site.contact.address}</p>
               <p>
+                <a href={site.contact.phoneHref} className="text-white underline-offset-4 hover:underline">
+                  {site.contact.phone}
+                </a>
+              </p>
+              <p>
                 <a href={site.contact.emailHref} className="text-white underline-offset-4 hover:underline">
                   {site.contact.email}
                 </a>
@@ -87,12 +92,20 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Şirket ünvanı — net ve okunur */}
+        <div className="border-t border-white/10 pt-7">
+          <p className="text-xs uppercase tracking-[0.24em] text-bg/45">Şirket Ünvanı</p>
+          <p className="mt-2 text-sm font-medium tracking-wide text-bg/90">
+            {site.legalName}
+          </p>
+        </div>
+
         <div className="border-t border-white/10 pt-7">
           <p className="text-center font-display text-[clamp(2.6rem,9vw,7.5rem)] italic leading-none text-white/[0.07] select-none" aria-hidden="true">
             Kaliteyle Kurulur
           </p>
           <div className="mt-7 flex flex-col gap-3 text-xs text-bg/45 md:flex-row md:items-center md:justify-between">
-            <p>© {new Date().getFullYear()} {site.legalName}. Tüm hakları saklıdır.</p>
+            <p>© {new Date().getFullYear()} Kuk İnşaat. Tüm hakları saklıdır.</p>
             <div className="flex gap-6">
               <Link href="/gizlilik" className="hover:text-white">Gizlilik & KVKK</Link>
               <Link href="/iletisim" className="hover:text-white">İletişim</Link>

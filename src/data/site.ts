@@ -10,7 +10,8 @@ export const site = {
     "KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe değer üretmeyi hedefler. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir araya getirerek her projede nitelikli ve kalıcı çözümler geliştirir.",
   locationLabel: "Başiskele / Kocaeli",
   contact: {
-    phone: "",
+    phone: "+90 543 741 05 41",
+    phoneHref: "tel:+905437410541",
     email: "umut@kukinsaat.com",
     emailHref: "mailto:umut@kukinsaat.com",
     address: "Ovacık Mah. Çuhane Cad. No:176 Başiskele, Kocaeli",

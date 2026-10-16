@@ -41,6 +41,11 @@ export default function IletisimPage() {
                   <address className="mt-4 space-y-5 text-base not-italic leading-relaxed">
                     <p className="font-display text-2xl leading-snug">{site.contact.address}</p>
                     <p>
+                      <a href={site.contact.phoneHref} className="font-medium underline-offset-4 hover:underline">
+                        {site.contact.phone}
+                      </a>
+                    </p>
+                    <p>
                       <a href={site.contact.emailHref} className="font-medium underline-offset-4 hover:underline">
                         {site.contact.email}
                       </a>

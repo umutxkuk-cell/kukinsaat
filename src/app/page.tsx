@@ -10,7 +10,9 @@ import { Marquee } from "@/components/ui/Marquee";
 import { faqs } from "@/data/faq";
 
 export const metadata = {
-  title: "Kuk İnşaat — İnşaat, Proje & Mühendislik | Başiskele, Kocaeli",
+  title: {
+    absolute: "Kuk İnşaat",
+  },
   description:
     "KUK İnşaat — Kaliteyle Kurulur. Kocaeli Başiskele merkezli inşaat ve mühendislik firması. Konut, ticari ve karma kullanımlı yapıların projelendirme ve inşaat süreçlerini tek elden yürütür.",
   alternates: { canonical: "/" },

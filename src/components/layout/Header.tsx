@@ -115,6 +115,7 @@ export function Header() {
               </Link>
             ))}
             <div className="pt-6 text-sm text-muted">
+              <a href={site.contact.phoneHref} onClick={() => setOpen(false)} className="block py-1 text-ink">{site.contact.phone}</a>
               <a href={site.contact.emailHref} onClick={() => setOpen(false)} className="block py-1 text-ink">{site.contact.email}</a>
               <p className="py-1">{site.contact.addressShort}</p>
               <SocialLinks variant="ghost" className="mt-4 text-ink" />

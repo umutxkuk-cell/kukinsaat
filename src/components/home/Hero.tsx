@@ -57,7 +57,7 @@ export function Hero() {
         <div className="hero-anim hero-anim-1 flex items-center gap-4">
           <span className="h-px w-12 bg-accent-soft" />
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.34em] text-white/85">
-            {site.name} — {site.locationLabel}
+            {site.name}
           </p>
         </div>
 
