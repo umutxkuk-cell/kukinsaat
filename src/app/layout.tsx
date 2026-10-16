@@ -44,6 +44,10 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  verification: {
+    // Google Search Console site sahipliği doğrulaması (HTML etiketi yöntemi).
+    google: "googledc53ece4919de5fe",
+  },
 };
 
 const jsonLd = {
