@@ -2,7 +2,6 @@ import { Hero } from "@/components/home/Hero";
 import { Approach } from "@/components/home/Approach";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { ProjectsPreview } from "@/components/home/ProjectsPreview";
-import { Engineering } from "@/components/home/Engineering";
 import { Process } from "@/components/home/Process";
 import { ContactCta } from "@/components/home/ContactCta";
 import { SloganBand } from "@/components/home/SloganBand";
@@ -24,7 +23,6 @@ export default function HomePage() {
       <ServicesPreview />
       <SloganBand />
       <ProjectsPreview />
-      <Engineering />
       <Process />
       <Faq />
       <ContactCta />

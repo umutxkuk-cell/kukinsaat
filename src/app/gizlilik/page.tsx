@@ -30,6 +30,16 @@ export default function GizlilikPage() {
                 paylaşılmaz.
               </p>
               <p>
+                <strong>Çerezler ve analitik:</strong> Web sitemiz, ziyaretçi
+                deneyimini iyileştirmek ve anonim ziyaret istatistiklerini (hangi
+                sayfaların ziyaret edildiği, ziyaret süresi gibi) ölçmek için Google
+                Analytics çerezlerini kullanır. Bu çerezler yalnızca siteye ilk
+                girişinizde gösterilen çerez bildirimi üzerinden <em>onay vermeniz
+                hâlinde</em> çalışır. Onay vermezseniz analitik çerezleri yüklenmez.
+                Tercihinizi, tarayıcınızın site verilerini temizleyerek dilediğiniz
+                zaman sıfırlayabilirsiniz.
+              </p>
+              <p>
                 Verilerinizin silinmesi, düzeltilmesi veya bilgi talepleriniz için
                 bize <a className="underline underline-offset-4" href={site.contact.emailHref}>{site.contact.email}</a> adresinden ulaşabilirsiniz.
               </p>

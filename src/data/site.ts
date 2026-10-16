@@ -4,6 +4,8 @@ export const site = {
   legalName: "KUK PROJE MÜHENDİSLİK İNŞAAT TİCARET LİMİTED ŞİRKETİ",
   slogan: "Kaliteyle Kurulur",
   tagline: "Kaliteyle Kurulur.",
+  // Google Analytics 4 ölçüm kimliği (GA4 Measurement ID)
+  gaId: "G-EFGSKFKXBM",
   description:
     "KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe değer üretmeyi hedefler. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir araya getirerek her projede nitelikli ve kalıcı çözümler geliştirir.",
   locationLabel: "Başiskele / Kocaeli",

@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Intro } from "@/components/layout/Intro";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 import { site } from "@/data/site";
 
 const display = Cormorant_Garamond({
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <CookieConsent />
       </body>
     </html>
   );
