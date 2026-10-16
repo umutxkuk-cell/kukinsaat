@@ -33,11 +33,10 @@ export default function GizlilikPage() {
                 <strong>Çerezler ve analitik:</strong> Web sitemiz, ziyaretçi
                 deneyimini iyileştirmek ve anonim ziyaret istatistiklerini (hangi
                 sayfaların ziyaret edildiği, ziyaret süresi gibi) ölçmek için Google
-                Analytics çerezlerini kullanır. Bu çerezler yalnızca siteye ilk
-                girişinizde gösterilen çerez bildirimi üzerinden <em>onay vermeniz
-                hâlinde</em> çalışır. Onay vermezseniz analitik çerezleri yüklenmez.
-                Tercihinizi, tarayıcınızın site verilerini temizleyerek dilediğiniz
-                zaman sıfırlayabilirsiniz.
+                Analytics kullanır. Bu veriler kimliğinizi belirlemek için değil,
+                yalnızca sitenin genel kullanımını anlamak amacıyla toplanır.
+                Tarayıcınızın ayarlarından çerezleri dilediğiniz zaman
+                engelleyebilir veya silebilirsiniz.
               </p>
               <p>
                 Verilerinizin silinmesi, düzeltilmesi veya bilgi talepleriniz için

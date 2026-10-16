@@ -5,7 +5,6 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Intro } from "@/components/layout/Intro";
-import { CookieConsent } from "@/components/layout/CookieConsent";
 import { site } from "@/data/site";
 
 const display = Cormorant_Garamond({
@@ -66,29 +65,30 @@ const jsonLd = {
   sameAs: site.social.map((s) => s.href),
 };
 
-const consentDefault = `
+const gtagInit = site.gaId
+  ? `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
-  try {
-    if (localStorage.getItem('kuk-cookie-consent') === 'accepted') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
-    }
-  } catch (e) {}
-`;
+  gtag('js', new Date());
+  gtag('config', '${site.gaId}');
+`
+  : "";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="tr" className={`${display.variable} ${sans.variable}`}>
       <head>
-        {/* Google Consent Mode — GA yüklenmeden ÖNCE varsayılan olarak izinleri reddet.
-            Ziyaretçi onay verince analytics_storage 'granted' olur. */}
-        <script dangerouslySetInnerHTML={{ __html: consentDefault }} />
+        {/* Google Analytics (gtag.js) — doğrudan head'de, Google'ın beklediği
+            standart biçim. Ziyaret ölçümü sayfa açılışında başlar. */}
+        {site.gaId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}
+            />
+            <script dangerouslySetInnerHTML={{ __html: gtagInit }} />
+          </>
+        ) : null}
       </head>
       <body className="bg-bg text-ink antialiased">
         <a href="#main" className="skip-link">
@@ -105,7 +105,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <CookieConsent />
       </body>
     </html>
   );
