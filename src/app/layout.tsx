@@ -25,21 +25,30 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kukinsaat.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "Kuk İnşaat",
+    default: "Kuk İnşaat | Kocaeli İnşaat ve Mühendislik Firması",
     template: "%s | Kuk İnşaat",
   },
   description:
-    "Kuk İnşaat, Kocaeli Başiskele merkezli bir inşaat ve mühendislik firmasıdır. Konut, ticari ve karma kullanımlı yapıların projelendirme ve inşaat süreçlerini tek elden yürütür.",
-  keywords: ["Kuk İnşaat", "KUK Proje Mühendislik", "inşaat Kocaeli", "Başiskele inşaat", "mühendislik", "proje geliştirme"],
+    "Kocaeli inşaat ve mühendislik firması Kuk İnşaat; konut, ticari ve karma kullanımlı yapıların projelendirme, mühendislik ve inşaat süreçlerini tek elden yürütür. Kaliteyle Kurulur.",
+  keywords: [
+    "Kuk İnşaat",
+    "Kocaeli inşaat firması",
+    "Kocaeli inşaat şirketi",
+    "Kocaeli mühendislik firması",
+    "Kocaeli yapı uygulamaları",
+    "inşaat proje yönetimi Kocaeli",
+    "teknik danışmanlık Kocaeli",
+    "KUK Proje Mühendislik",
+  ],
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
     locale: "tr_TR",
     siteName: "Kuk İnşaat",
     url: siteUrl,
-    title: "Kuk İnşaat — Kaliteyle Kurulur",
+    title: "Kuk İnşaat | Kocaeli İnşaat ve Mühendislik Firması",
     description:
-      "Kocaeli Başiskele merkezli inşaat ve mühendislik firması. Konut, ticari ve karma kullanımlı yapıların projelendirme ve inşaat süreçleri.",
+      "Kocaeli merkezli inşaat ve mühendislik firması. Konut, ticari ve karma kullanımlı yapıların projelendirme, mühendislik ve inşaat süreçleri — Kaliteyle Kurulur.",
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
@@ -76,10 +85,7 @@ const jsonLd = {
     longitude: 29.9999255,
   },
   hasMap: site.contact.mapsUrl,
-  areaServed: [
-    { "@type": "City", name: "Kocaeli" },
-    { "@type": "AdministrativeArea", name: "Başiskele" },
-  ],
+  areaServed: { "@type": "AdministrativeArea", name: "Kocaeli" },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],

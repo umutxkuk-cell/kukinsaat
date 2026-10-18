@@ -11,10 +11,10 @@ import { faqs } from "@/data/faq";
 
 export const metadata = {
   title: {
-    absolute: "Kuk İnşaat",
+    absolute: "Kuk İnşaat | Kocaeli İnşaat ve Mühendislik Firması",
   },
   description:
-    "KUK İnşaat — Kaliteyle Kurulur. Kocaeli Başiskele merkezli inşaat ve mühendislik firması. Konut, ticari ve karma kullanımlı yapıların projelendirme ve inşaat süreçlerini tek elden yürütür.",
+    "Kocaeli inşaat ve mühendislik firması Kuk İnşaat; konut, ticari ve karma kullanımlı yapıların projelendirme, mühendislik ve inşaat süreçlerini tek elden yürütür. Kaliteyle Kurulur.",
   alternates: { canonical: "/" },
 };
 

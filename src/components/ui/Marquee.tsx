@@ -3,7 +3,7 @@ const items = [
   "Proje ve Mühendislik",
   "Teknik Koordinasyon",
   "Kalite Kontrol",
-  "Başiskele — Kocaeli",
+  "Kocaeli",
   "Teknik Danışmanlık",
 ];
 

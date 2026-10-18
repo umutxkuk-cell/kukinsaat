@@ -10,7 +10,7 @@ import { services } from "@/data/services";
 export const metadata = {
   title: "Hizmetlerimiz — İnşaat, Mühendislik ve Proje Hizmetleri",
   description:
-    "KUK İnşaat; inşaat ve yapı uygulamaları, mühendislik, proje geliştirme, süreç yönetimi ve teknik danışmanlık hizmetlerini Kocaeli Başiskele'de tek çatı altında sunar.",
+    "Kocaeli inşaat ve mühendislik firması Kuk İnşaat; inşaat ve yapı uygulamaları, mühendislik, proje geliştirme, süreç yönetimi ve teknik danışmanlık hizmetlerini tek çatı altında sunar.",
   alternates: { canonical: "/hizmetler" },
 };
 
@@ -72,8 +72,9 @@ export default function HizmetlerPage() {
           />
           <Reveal variant="up" delay={200}>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted">
-              İnşaat, projelendirme ve mühendislik hizmetlerini tek çatı altında
-              sunuyoruz. Her çalışma alanımızın kapsamını aşağıda bulabilirsiniz.
+              Kocaeli ve çevresinde inşaat, projelendirme ve mühendislik hizmetlerini
+              tek çatı altında sunuyoruz. Her çalışma alanımızın kapsamını aşağıda
+              bulabilirsiniz.
             </p>
           </Reveal>
 

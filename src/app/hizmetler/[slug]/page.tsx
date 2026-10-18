@@ -50,10 +50,7 @@ export default async function ServiceDetailPage({
     serviceType: service.title,
     url: `${siteUrl}/hizmetler/${service.slug}`,
     provider: { "@type": "GeneralContractor", name: "Kuk İnşaat", url: siteUrl },
-    areaServed: [
-      { "@type": "City", name: "Kocaeli" },
-      { "@type": "AdministrativeArea", name: "Başiskele" },
-    ],
+    areaServed: { "@type": "AdministrativeArea", name: "Kocaeli" },
   };
 
   const breadcrumbJsonLd = {

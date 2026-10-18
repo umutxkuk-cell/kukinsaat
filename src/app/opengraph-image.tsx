@@ -51,7 +51,7 @@ export default function OpengraphImage() {
           </span>
         </div>
 
-        <span style={{ fontSize: 22, opacity: 0.6 }}>Başiskele, Kocaeli</span>
+        <span style={{ fontSize: 22, opacity: 0.6 }}>Kocaeli İnşaat & Mühendislik</span>
       </div>
     ),
     { ...size }

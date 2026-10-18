@@ -24,8 +24,9 @@ export default function IletisimPage() {
               Bize <em className="text-accent">ulaşın.</em>
             </h1>
             <p className="mt-6 max-w-xl leading-relaxed text-muted">
-              Sorularınız ve projeleriniz için aşağıdaki formu doldurabilir veya
-              doğrudan e-posta gönderebilirsiniz. En kısa sürede size dönüş yaparız.
+              Kocaeli ve çevresindeki inşaat, mühendislik ve proje
+              ihtiyaçlarınız için aşağıdaki formu doldurabilir veya doğrudan e-posta
+              gönderebilirsiniz. En kısa sürede size dönüş yaparız.
             </p>
           </Reveal>
         </Container>

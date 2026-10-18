@@ -76,9 +76,9 @@ export function Hero() {
 
         <div className="mt-9 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p className="hero-anim hero-anim-4 max-w-xl text-base leading-relaxed text-white/82 md:text-lg">
-            Kuk İnşaat, Kocaeli Başiskele&apos;de faaliyet gösteren bir inşaat ve
-            mühendislik firmasıdır. Projenin değerlendirilmesinden teslimine kadar
-            her aşamayı tek elden, planlı bir biçimde yürütürüz.
+            Kuk İnşaat, Kocaeli merkezli bir inşaat ve mühendislik firmasıdır.
+            Konut, ticari ve karma kullanımlı yapılarda; projenin değerlendirilmesinden
+            teslimine kadar her aşamayı tek elden, planlı bir biçimde yürütürüz.
           </p>
 
           <div className="hero-anim hero-anim-5 flex flex-wrap items-center gap-4">

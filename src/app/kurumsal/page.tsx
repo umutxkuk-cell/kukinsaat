@@ -13,7 +13,7 @@ import { site } from "@/data/site";
 export const metadata = {
   title: "Kurumsal",
   description:
-    "KUK İnşaat (KUK Proje Mühendislik İnşaat Tic. Ltd. Şti.) — Başiskele, Kocaeli merkezli inşaat ve mühendislik firmasının yaklaşımı, değerleri ve kalite anlayışı.",
+    "Kocaeli merkezli inşaat ve mühendislik firması Kuk İnşaat (KUK Proje Mühendislik İnşaat Tic. Ltd. Şti.); mühendislik yaklaşımı, değerleri ve kalite anlayışı. Kaliteyle Kurulur.",
   alternates: { canonical: "/kurumsal" },
 };
 
@@ -63,7 +63,7 @@ export default function KurumsalPage() {
             <div className="mt-16 grid grid-cols-2 gap-px border border-line bg-line md:grid-cols-4">
               {[
                 { v: <Counter to={5} />, l: "Hizmet alanı" },
-                { v: "Kocaeli", l: "Başiskele merkez" },
+                { v: "Kocaeli", l: "Hizmet bölgesi" },
                 { v: "Tek Elden", l: "Proje yönetimi" },
                 { v: "Uçtan Uca", l: "Fikirden teslime" },
               ].map((s, i) => (
@@ -114,13 +114,14 @@ export default function KurumsalPage() {
                   <span className="h-px w-10 bg-accent" /> Hakkımızda
                 </p>
                 <h2 className="mt-6 text-[clamp(1.9rem,3.2vw,2.9rem)] leading-tight">
-                  Değer üreten, kalıcı çözümler geliştiren bir yapı firması.
+                  Kocaeli&apos;de değer üreten, kalıcı çözümler geliştiren bir yapı firması.
                 </h2>
               </Reveal>
               <Reveal variant="right" delay={120}>
                 <p className="mt-7 text-lg leading-relaxed text-ink/80">
-                  KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik
-                  ilkeleriyle inşaat sektöründe değer üretmeyi hedefler.
+                  Kocaeli merkezli inşaat ve mühendislik firması Kuk İnşaat; mühendislik
+                  disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe
+                  değer üretmeyi hedefler.
                 </p>
                 <p className="mt-4 leading-relaxed text-muted">
                   Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir
@@ -132,8 +133,8 @@ export default function KurumsalPage() {
               <Reveal variant="up" delay={220}>
                 <dl className="mt-10 grid grid-cols-2 gap-px bg-line text-sm">
                   <div className="bg-bg p-5">
-                    <dt className="text-xs uppercase tracking-[0.18em] text-muted">Merkez</dt>
-                    <dd className="mt-2 font-medium">Başiskele, Kocaeli</dd>
+                    <dt className="text-xs uppercase tracking-[0.18em] text-muted">Hizmet Bölgesi</dt>
+                    <dd className="mt-2 font-medium">Kocaeli ve çevresi</dd>
                   </div>
                   <div className="bg-bg p-5">
                     <dt className="text-xs uppercase tracking-[0.18em] text-muted">Faaliyet</dt>

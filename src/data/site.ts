@@ -7,8 +7,8 @@ export const site = {
   // Google Analytics 4 ölçüm kimliği (GA4 Measurement ID)
   gaId: "G-JM9SZ63YJ5",
   description:
-    "KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe değer üretmeyi hedefler. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir araya getirerek her projede nitelikli ve kalıcı çözümler geliştirir.",
-  locationLabel: "Başiskele / Kocaeli",
+    "Kocaeli merkezli inşaat ve mühendislik firması KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe değer üretir. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir araya getirerek Kocaeli ve çevresinde her projede nitelikli, kalıcı çözümler geliştirir.",
+  locationLabel: "Kocaeli",
   contact: {
     phone: "+90 543 741 05 41",
     phoneHref: "tel:+905437410541",

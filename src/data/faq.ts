@@ -15,7 +15,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: "Hangi bölgelerde çalışıyorsunuz?",
-    a: "Merkezimiz Kocaeli Başiskele'de bulunuyor ve ağırlıklı olarak Kocaeli ve çevresinde hizmet veriyoruz. Kapsamı netleştirmek için bizimle iletişime geçebilirsiniz.",
+    a: "Kocaeli merkezli bir firmayız ve ağırlıklı olarak Kocaeli ili genelinde ve çevre bölgelerde hizmet veriyoruz. Projenizin konumu ve kapsamı için bizimle iletişime geçebilirsiniz.",
   },
   {
     q: "Nasıl teklif alabilirim?",
