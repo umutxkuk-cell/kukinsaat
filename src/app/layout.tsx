@@ -56,6 +56,17 @@ export const metadata: Metadata = {
     // Google Search Console site sahipliği doğrulaması (HTML etiketi yöntemi).
     google: "googledc53ece4919de5fe",
   },
+  icons: {
+    // Tamamı public/ içinde SAF STATİK dosya — hiçbir runtime/function gerektirmez,
+    // bu yüzden Netlify dahil her platformda 404 vermeden servis edilir.
+    // Google Search PNG'yi destekler (SVG'yi arama sonucunda göstermez).
+    icon: [
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/web-app-icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
 };
 
 const jsonLd = {
