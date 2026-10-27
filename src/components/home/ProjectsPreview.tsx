@@ -37,7 +37,7 @@ export function ProjectsPreview() {
             {featured.map((p, i) => (
               <Reveal
                 key={p.slug}
-                variant={i === 0 ? "clip" : i === 1 ? "scale" : "right"}
+                variant={i === 0 ? "up" : i === 1 ? "scale" : "right"}
                 delay={i * 130}
                 className={i === 0 ? "md:col-span-7" : "md:col-span-5 md:mt-20"}
               >
@@ -66,34 +66,60 @@ export function ProjectsPreview() {
             ))}
           </div>
         ) : (
-          <Reveal variant="clip" className="mt-14">
-            <div className="relative overflow-hidden border border-ink/15 bg-ink text-white">
-              <div className="grid gap-10 p-8 md:grid-cols-12 md:items-center md:p-14">
-                <div className="md:col-span-8">
-                  <p className="font-display text-[clamp(1.9rem,3.4vw,3rem)] leading-tight">
-                    Projelerimiz yakında burada.
-                  </p>
-                  <p className="mt-5 max-w-xl leading-relaxed text-white/65">
-                    Tamamladığımız ve devam eden işlerimizi kısa süre içinde bu
-                    bölümde paylaşacağız. Güncel projelerimiz hakkında bilgi almak
-                    için bizimle iletişime geçebilirsiniz.
-                  </p>
-                  <Link
-                    href="/iletisim"
-                    className="group mt-9 inline-flex items-center gap-3 border border-white/40 px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-white hover:text-ink"
-                  >
-                    Bilgi alın
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                  </Link>
-                </div>
-                <div className="md:col-span-4">
-                  <p className="font-display text-[7rem] leading-none text-white/[0.08] select-none md:text-[9rem]" aria-hidden="true">
-                    KUK
-                  </p>
-                </div>
+          <div className="mt-14 grid gap-6 lg:grid-cols-12">
+            {/* Sol: çalışma alanları — gerçek proje yokken bile dolu ve bilgilendirici */}
+            <div className="lg:col-span-7">
+              <div className="grid h-full grid-cols-2 gap-px border border-line bg-line">
+                {[
+                  { k: "Konut Yapıları", d: "Nitelikli ve kalıcı yaşam alanları" },
+                  { k: "Ticari Yapılar", d: "İşlevsel ve verimli ticari projeler" },
+                  { k: "Karma Kullanım", d: "Çok amaçlı yapı çözümleri" },
+                  { k: "Mühendislik", d: "Teknik koordinasyon ve uygulama" },
+                ].map((item, i) => (
+                  <Reveal key={item.k} variant="up" delay={i * 90}>
+                    <div className="group h-full bg-bg p-7 transition-colors hover:bg-bg-2 md:p-9">
+                      <span className="font-display text-2xl text-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="mt-5 font-sans text-lg font-semibold">{item.k}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">{item.d}</p>
+                    </div>
+                  </Reveal>
+                ))}
               </div>
             </div>
-          </Reveal>
+
+            {/* Sağ: koyu çağrı bloğu */}
+            <Reveal variant="right" delay={120} className="lg:col-span-5">
+              <div className="relative flex h-full min-h-[320px] flex-col justify-between overflow-hidden bg-ink p-8 text-white md:p-10">
+                <span
+                  className="pointer-events-none absolute -bottom-6 -right-2 font-display text-[8rem] leading-none text-white/[0.06] select-none"
+                  aria-hidden="true"
+                >
+                  KUK
+                </span>
+                <div className="relative">
+                  <p className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent-soft">
+                    <span className="h-px w-8 bg-accent-soft" /> Portföy
+                  </p>
+                  <p className="mt-6 font-display text-[clamp(1.7rem,2.6vw,2.4rem)] font-semibold leading-tight">
+                    Tamamladığımız işleri yakında burada paylaşacağız.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-white/65">
+                    Güncel projelerimiz ve referanslarımız hakkında bilgi almak için
+                    bizimle iletişime geçebilirsiniz.
+                  </p>
+                </div>
+                <Link
+                  href="/iletisim"
+                  className="relative mt-8 inline-flex items-center gap-3 border border-white/40 px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-white hover:text-ink"
+                >
+                  İletişime geçin
+                  <span className="transition-transform duration-300 hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            </Reveal>
+          </div>
         )}
       </Container>
     </section>

@@ -9,11 +9,11 @@ export function ContactCta() {
     <section className="relative overflow-hidden bg-ink text-white">
       <div className="absolute inset-0">
         <Image
-          src="https://images.pexels.com/photos/28054849/pexels-photo-28054849.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1800"
-          alt="Alacakaranlıkta taş villa ve havuz"
+          src="https://images.pexels.com/photos/10410086/pexels-photo-10410086.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1800"
+          alt="Alacakaranlıkta cam ve beton cepheli çağdaş yapı"
           fill
           sizes="100vw"
-          className="object-cover opacity-35"
+          className="img-duotone object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/25" />
       </div>
@@ -36,7 +36,7 @@ export function ContactCta() {
         </Reveal>
         <Reveal variant="up" delay={360}>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link href="/iletisim" className="group inline-flex items-center gap-3 bg-white px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-accent hover:text-white">
+            <Link href="/iletisim" className="group inline-flex items-center gap-3 bg-white px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-white">
               İletişim Formu
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { site } from "@/data/site";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -155,10 +156,19 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex items-center justify-center bg-ink px-6 py-3 text-sm text-bg transition-colors hover:bg-accent disabled:opacity-60"
+        className="inline-flex items-center justify-center bg-ink px-6 py-3 text-sm text-bg transition-colors hover:bg-ink-hover disabled:opacity-60"
       >
         {status === "loading" ? "Gönderiliyor..." : "Mesajı gönder"}
       </button>
+
+      <p className="text-xs leading-relaxed text-muted">
+        Formu göndererek, paylaştığınız bilgilerin talebinizin değerlendirilmesi
+        amacıyla işlenmesini kabul etmiş olursunuz. Ayrıntılar için{" "}
+        <Link href="/gizlilik" className="underline underline-offset-2 hover:text-ink">
+          Gizlilik &amp; KVKK Aydınlatma Metni
+        </Link>
+        &apos;ni inceleyebilirsiniz.
+      </p>
     </form>
   );
 }

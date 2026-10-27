@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { LineReveal } from "@/components/ui/LineReveal";
-import { Parallax } from "@/components/ui/Parallax";
 import { ServiceIcon } from "@/components/services/ServiceIcon";
 import { services } from "@/data/services";
 
@@ -158,15 +157,13 @@ export default function HizmetlerPage() {
                     >
                       <Link href={`/hizmetler/${s.slug}`} className="block">
                         <div className="relative aspect-[4/3] overflow-hidden">
-                          <Parallax speed={0.06} className="h-full">
-                            <Image
-                              src={s.image}
-                              alt={s.imageAlt}
-                              fill
-                              sizes="(max-width:768px) 100vw, 50vw"
-                              className="img-zoom img-duotone object-cover"
-                            />
-                          </Parallax>
+                          <Image
+                            src={s.image}
+                            alt={s.imageAlt}
+                            fill
+                            sizes="(max-width:768px) 100vw, 50vw"
+                            className="img-zoom img-duotone object-cover"
+                          />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
                           {/* vertical service name on image */}
                           <span className="vertical-text-up pointer-events-none absolute right-5 top-5 text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-white/85">
@@ -180,7 +177,7 @@ export default function HizmetlerPage() {
                             <ServiceIcon name={s.icon} className="h-28 w-28 md:h-36 md:w-36" />
                           </span>
                           {/* corner icon badge */}
-                          <span className="absolute bottom-5 right-5 flex h-12 w-12 items-center justify-center bg-white/90 text-ink backdrop-blur-sm transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+                          <span className="absolute bottom-5 right-5 flex h-12 w-12 items-center justify-center bg-white/90 text-ink backdrop-blur-sm transition-colors duration-300 group-hover:bg-ink group-hover:text-white">
                             <ServiceIcon name={s.icon} className="svc-icon h-6 w-6" />
                           </span>
                         </div>
@@ -254,7 +251,7 @@ export default function HizmetlerPage() {
                 </p>
                 <Link
                   href="/iletisim"
-                  className="btn-sheen group mt-9 inline-flex items-center gap-3 bg-white px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-accent hover:text-white"
+                  className="btn-sheen group mt-9 inline-flex items-center gap-3 bg-white px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-white"
                 >
                   İletişime geçin
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

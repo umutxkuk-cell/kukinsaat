@@ -6,7 +6,6 @@ import { Process } from "@/components/home/Process";
 import { ContactCta } from "@/components/home/ContactCta";
 import { SloganBand } from "@/components/home/SloganBand";
 import { Faq } from "@/components/home/Faq";
-import { Marquee } from "@/components/ui/Marquee";
 import { faqs } from "@/data/faq";
 
 export const metadata = {
@@ -36,7 +35,6 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Hero />
-      <Marquee />
       <Approach />
       <ServicesPreview />
       <SloganBand />

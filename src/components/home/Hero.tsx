@@ -34,8 +34,8 @@ export function Hero() {
       <div ref={imgRef} className="absolute inset-0 will-change-transform">
         <div className="ken-burns relative h-full w-full">
           <Image
-            src="https://images.pexels.com/photos/13752348/pexels-photo-13752348.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=2100"
-            alt="Alacakaranlıkta aydınlatılmış çağdaş villa cephesi"
+            src="https://images.pexels.com/photos/3939978/pexels-photo-3939978.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=2100"
+            alt="Alacakaranlıkta geometrik cepheli çağdaş yapı"
             fill
             priority
             sizes="100vw"
@@ -43,13 +43,14 @@ export function Hero() {
           />
         </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/38 to-black/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-ink/40" />
+      <div className="absolute inset-0 bg-[radial-gradient(130%_90%_at_15%_85%,transparent_35%,rgba(15,17,20,0.55)_100%)]" />
 
       {/* oversized watermark */}
-      <div className="pointer-events-none absolute -right-10 top-24 hidden opacity-[0.12] lg:block hero-anim hero-anim-5" aria-hidden="true">
+      <div className="pointer-events-none absolute right-6 top-24 hidden opacity-[0.12] lg:block hero-anim hero-anim-5 xl:right-20" aria-hidden="true">
         <div className="float-slow">
-          <LogoMark variant="light" className="h-[26rem] w-auto" />
+          <LogoMark variant="light" className="h-[24rem] w-auto" />
         </div>
       </div>
 
@@ -61,9 +62,9 @@ export function Hero() {
           </p>
         </div>
 
-        <h1 className="mt-7 max-w-5xl text-[clamp(2.9rem,7.2vw,6.2rem)] leading-[0.98]">
+        <h1 className="mt-8 max-w-4xl text-[clamp(2.6rem,6vw,4.75rem)] font-bold leading-[1.04] tracking-[-0.03em]">
           <span className="hero-anim hero-anim-2 block">Sağlam yapılar,</span>
-          <span className="hero-anim hero-anim-3 block italic text-[#e8dcc8]">doğru mühendislik</span>
+          <span className="hero-anim hero-anim-3 block text-accent-soft">doğru mühendislik</span>
           <span className="hero-anim hero-anim-3 block">ile yükselir.</span>
         </h1>
 
@@ -83,7 +84,7 @@ export function Hero() {
 
           <div className="hero-anim hero-anim-5 flex flex-wrap items-center gap-4">
             <Magnetic>
-              <Link href="/hizmetler" className="btn-sheen group inline-flex items-center gap-3 bg-white px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-accent hover:text-white">
+              <Link href="/hizmetler" className="btn-sheen group inline-flex items-center gap-3 bg-white px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-white">
                 Hizmetlerimizi Keşfedin
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>

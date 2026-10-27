@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { Parallax } from "@/components/ui/Parallax";
 import { LineReveal } from "@/components/ui/LineReveal";
 import { Counter } from "@/components/ui/Counter";
 import { LogoDraw } from "@/components/brand/LogoDraw";
@@ -80,77 +79,82 @@ export default function KurumsalPage() {
       {/* ---------- Hakkımızda ---------- */}
       <section className="py-16 md:py-24">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* LEFT — single robust editorial image with built-in caption */}
-            <div className="lg:col-span-5">
-              <Reveal variant="clip">
-                <figure className="group relative aspect-[4/5] overflow-hidden bg-bg-2">
-                  <Image
-                    src="https://images.pexels.com/photos/9683985/pexels-photo-9683985.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1500&w=1200"
-                    alt="Beton ve cam detaylı modern yapı cephesi"
-                    fill
-                    sizes="(max-width:1024px) 100vw, 42vw"
-                    className="img-zoom object-cover"
-                  />
-                  {/* top label */}
-                  <figcaption className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.34em] text-white/90">
-                    <span className="h-px w-6 bg-white/70" /> KUK İnşaat
-                  </figcaption>
-                  {/* bottom gradient + slogan */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 pt-24">
-                    <p className="font-display text-3xl italic leading-none text-white">Kaliteyle</p>
-                    <p className="font-display text-3xl italic leading-none text-accent-soft">Kurulur.</p>
-                  </div>
-                  {/* thin inner frame accent */}
-                  <span className="pointer-events-none absolute inset-3 border border-white/15" aria-hidden="true" />
-                </figure>
-              </Reveal>
-            </div>
-
-            {/* RIGHT — text */}
-            <div className="lg:col-span-7">
-              <Reveal variant="right">
+          <div className="grid items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
+            {/* SOL: metin + bilgi tablosu (ana sayfa düzeniyle aynı) */}
+            <div className="flex flex-col">
+              <Reveal variant="left">
                 <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
                   <span className="h-px w-10 bg-accent" /> Hakkımızda
                 </p>
-                <h2 className="mt-6 text-[clamp(1.9rem,3.2vw,2.9rem)] leading-tight">
+                <h2 className="mt-6 text-[clamp(2.2rem,4.5vw,3.4rem)] leading-tight">
                   Kocaeli&apos;de değer üreten, kalıcı çözümler geliştiren bir yapı firması.
                 </h2>
-              </Reveal>
-              <Reveal variant="right" delay={120}>
-                <p className="mt-7 text-lg leading-relaxed text-ink/80">
+                <p className="mt-6 text-lg leading-relaxed text-ink/80">
                   Kocaeli merkezli inşaat ve mühendislik firması Kuk İnşaat; mühendislik
                   disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe
-                  değer üretmeyi hedefler.
-                </p>
-                <p className="mt-4 leading-relaxed text-muted">
-                  Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir
-                  araya getirerek her projede nitelikli ve kalıcı çözümler geliştirmeyi
-                  amaçlar.
+                  değer üretmeyi hedefler. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve
+                  sürdürülebilirliği bir araya getirerek her projede nitelikli ve kalıcı
+                  çözümler geliştirmeyi amaçlar.
                 </p>
               </Reveal>
 
-              <Reveal variant="up" delay={220}>
-                <dl className="mt-10 grid grid-cols-2 gap-px bg-line text-sm">
-                  <div className="bg-bg p-5">
+              {/* bilgi tablosu — kalan alanı doldurur */}
+              <Reveal variant="up" delay={160} className="mt-8 flex-1">
+                <dl className="grid h-full grid-cols-2 gap-px bg-line text-sm">
+                  <div className="flex flex-col justify-center bg-bg p-5">
                     <dt className="text-xs uppercase tracking-[0.18em] text-muted">Hizmet Bölgesi</dt>
                     <dd className="mt-2 font-medium">Kocaeli ve çevresi</dd>
                   </div>
-                  <div className="bg-bg p-5">
+                  <div className="flex flex-col justify-center bg-bg p-5">
                     <dt className="text-xs uppercase tracking-[0.18em] text-muted">Faaliyet</dt>
                     <dd className="mt-2 font-medium">İnşaat · Proje · Mühendislik</dd>
                   </div>
-                  <div className="bg-bg p-5">
+                  <div className="flex flex-col justify-center bg-bg p-5">
                     <dt className="text-xs uppercase tracking-[0.18em] text-muted">E-posta</dt>
                     <dd className="mt-2 font-medium break-all">{site.contact.email}</dd>
                   </div>
-                  <div className="bg-bg p-5">
+                  <div className="flex flex-col justify-center bg-bg p-5">
                     <dt className="text-xs uppercase tracking-[0.18em] text-muted">Sosyal</dt>
                     <dd className="mt-2 font-medium">Instagram · LinkedIn — @kukinsaat</dd>
                   </div>
                 </dl>
+              </Reveal>
+
+              <Reveal variant="up" delay={240}>
                 <p className="mt-6 text-xs leading-relaxed text-muted">{site.legalName}</p>
               </Reveal>
+            </div>
+
+            {/* SAĞ: görsel + koyu imza kartı (ana sayfa düzeniyle aynı) */}
+            <div className="flex flex-col">
+              <div className="group relative flex-1">
+                <div className="relative h-full min-h-[340px] overflow-hidden">
+                  <Image
+                    src="https://images.pexels.com/photos/9683985/pexels-photo-9683985.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1500&w=1100"
+                    alt="Beton ve cam detaylı modern yapı cephesi"
+                    fill
+                    sizes="(max-width:1024px) 100vw, 46vw"
+                    className="img-zoom img-duotone object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+                  <span className="pointer-events-none absolute inset-4 border border-white/15" aria-hidden="true" />
+                  <span className="pointer-events-none absolute left-5 top-5 vertical-text text-[0.62rem] font-semibold uppercase tracking-[0.42em] text-white/85">
+                    Kaliteyle Kurulur
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-6 bg-ink p-7 text-white md:p-8">
+                <div>
+                  <p className="font-display text-xl font-semibold leading-tight md:text-2xl">
+                    Fikirden teslime, tek elden.
+                  </p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/55">
+                    Projelendirme · Mühendislik · Uygulama
+                  </p>
+                </div>
+                <span className="shrink-0 font-display text-5xl font-bold leading-none text-accent-soft">05</span>
+              </div>
             </div>
           </div>
         </Container>
@@ -204,15 +208,13 @@ export default function KurumsalPage() {
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal variant="left" className="lg:col-span-6">
               <div className="relative aspect-[5/4] overflow-hidden">
-                <Parallax speed={0.07} className="h-full">
-                  <Image
-                    src="https://images.pexels.com/photos/8961298/pexels-photo-8961298.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=1250"
-                    alt="Yapı planı üzerinde teknik değerlendirme"
-                    fill
-                    sizes="(max-width:1024px) 100vw, 50vw"
-                    className="img-duotone object-cover"
-                  />
-                </Parallax>
+                <Image
+                  src="https://images.pexels.com/photos/8961298/pexels-photo-8961298.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=1250"
+                  alt="Yapı planı üzerinde teknik değerlendirme"
+                  fill
+                  sizes="(max-width:1024px) 100vw, 50vw"
+                  className="img-duotone object-cover"
+                />
               </div>
             </Reveal>
             <div className="lg:col-span-6">
@@ -271,7 +273,7 @@ export default function KurumsalPage() {
                 <div className="md:col-span-5 md:text-right">
                   <Link
                     href="/hizmetler"
-                    className="btn-sheen group inline-flex items-center gap-3 bg-ink px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-accent"
+                    className="btn-sheen group inline-flex items-center gap-3 bg-ink px-8 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-ink-hover"
                   >
                     Tüm hizmetler
                     <span className="nudge-x">→</span>

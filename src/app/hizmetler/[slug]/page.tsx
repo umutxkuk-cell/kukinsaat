@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { Parallax } from "@/components/ui/Parallax";
 import { Button } from "@/components/ui/Button";
 import { ServiceIcon } from "@/components/services/ServiceIcon";
 import { services, getService } from "@/data/services";
@@ -108,20 +107,18 @@ export default async function ServiceDetailPage({
       <section className="pb-20">
         <Container>
           <div className="grid gap-12 md:grid-cols-12">
-            <Reveal variant="clip" className="md:col-span-7">
+            <div className="md:col-span-7">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <Parallax speed={0.06} className="h-full">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    sizes="(max-width:768px) 100vw, 60vw"
-                    className="img-duotone object-cover"
-                    priority
-                  />
-                </Parallax>
+                <Image
+                  src={service.image}
+                  alt={service.imageAlt}
+                  fill
+                  sizes="(max-width:768px) 100vw, 60vw"
+                  className="img-duotone object-cover"
+                  priority
+                />
               </div>
-            </Reveal>
+            </div>
             <Reveal variant="right" delay={120} className="md:col-span-5">
               <p className="leading-relaxed text-ink/80">{service.description}</p>
               <h2 className="mt-9 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">

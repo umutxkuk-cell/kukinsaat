@@ -5,18 +5,7 @@ import { LogoDraw } from "@/components/brand/LogoDraw";
 
 export function SloganBand() {
   return (
-    <section className="relative overflow-hidden bg-ink py-24 text-white md:py-36">
-      {/* repeating ghost slogan marquee */}
-      <div className="marquee marquee-rev pointer-events-none absolute inset-x-0 top-10 select-none opacity-[0.05]" aria-hidden="true">
-        <div className="marquee-track">
-          {[0, 1].map((h) => (
-            <span key={h} className="whitespace-nowrap font-display text-[7rem] leading-none md:text-[11rem]">
-              KALİTEYLE KURULUR · KALİTEYLE KURULUR ·&nbsp;
-            </span>
-          ))}
-        </div>
-      </div>
-
+    <section className="relative overflow-hidden bg-ink-2 py-24 text-white md:py-36">
       <Container className="relative">
         <div className="flex flex-col items-center text-center">
           <Reveal variant="scale">
@@ -31,7 +20,7 @@ export function SloganBand() {
 
           <LineReveal
             as="h2"
-            className="mt-6 font-display text-[clamp(3rem,10vw,8rem)] leading-[0.95]"
+            className="mt-6 font-display text-[clamp(2.4rem,7vw,5.5rem)] font-bold leading-[1.05] tracking-[-0.02em]"
             stagger={0}
             lines={["Kaliteyle Kurulur"]}
           />

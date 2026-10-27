@@ -32,12 +32,8 @@ export function Footer() {
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-bg/65">{site.description}</p>
             <div className="mt-8">
               <p className="text-xs uppercase tracking-[0.24em] text-bg/45">Takip edin</p>
-              <div className="mt-4 flex items-center gap-4">
+              <div className="mt-4">
                 <SocialLinks variant="footer" />
-                <div className="flex flex-col justify-center text-xs leading-relaxed text-bg/55">
-                  <span>Instagram — {site.social[0].handle}</span>
-                  <span>LinkedIn — {site.social[1].handle}</span>
-                </div>
               </div>
             </div>
           </div>
@@ -101,7 +97,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-7">
-          <p className="text-center font-display text-[clamp(2.6rem,9vw,7.5rem)] italic leading-none text-white/[0.07] select-none" aria-hidden="true">
+          <p className="text-center font-display text-[clamp(2.2rem,7vw,5.5rem)] font-bold uppercase tracking-[-0.02em] leading-none text-white/[0.06] select-none" aria-hidden="true">
             Kaliteyle Kurulur
           </p>
           <div className="mt-7 flex flex-col gap-3 text-xs text-bg/45 md:flex-row md:items-center md:justify-between">

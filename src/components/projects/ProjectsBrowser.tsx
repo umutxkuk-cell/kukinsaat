@@ -18,7 +18,7 @@ function EmptyState() {
       </p>
       <Link
         href="/iletisim"
-        className="group mt-10 inline-flex items-center gap-3 bg-ink px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-accent"
+        className="group mt-10 inline-flex items-center gap-3 bg-ink px-7 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-ink-hover"
       >
         Bize ulaşın
         <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

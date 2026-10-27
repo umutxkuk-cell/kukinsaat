@@ -48,8 +48,8 @@ export const services: Service[] = [
       "Performans ve güvenlik odaklı kararlar",
     ],
     image:
-      "https://images.pexels.com/photos/31258538/pexels-photo-31258538.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1200",
-    imageAlt: "Mavi gökyüzünde inşaat vinçleri",
+      "https://images.pexels.com/photos/5582585/pexels-photo-5582585.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1200",
+    imageAlt: "Mühendislik çizimleri, ölçü aletleri ve teknik dokümanlar",
   },
   {
     slug: "proje-gelistirme-ve-teknik-koordinasyon",
@@ -105,8 +105,8 @@ export const services: Service[] = [
       "Süreç ve kalite önerileri",
     ],
     image:
-      "https://images.pexels.com/photos/1846268/pexels-photo-1846268.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1200",
-    imageAlt: "Modern beton yapının yakın planı",
+      "https://images.pexels.com/photos/6614786/pexels-photo-6614786.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=1200",
+    imageAlt: "İncelenmek üzere düzenlenmiş proje ve uygulama dokümanları",
   },
 ];
 

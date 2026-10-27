@@ -18,9 +18,27 @@ function LinkedInGlyph({ className = "h-[18px] w-[18px]" }: { className?: string
   );
 }
 
+function FacebookGlyph({ className = "h-[18px] w-[18px]" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M14 8.5V7c0-.8.2-1.2 1.4-1.2H17V3h-2.4C11.9 3 10.8 4.4 10.8 6.8V8.5H9V11h1.8v10H14V11h2.4l.35-2.5H14Z" />
+    </svg>
+  );
+}
+
+function XGlyph({ className = "h-[18px] w-[18px]" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M17.53 3h3.08l-6.73 7.69L21.75 21h-6.2l-4.86-6.35L5.13 21H2.05l7.2-8.23L1.75 3h6.36l4.39 5.8L17.53 3Zm-1.08 16.17h1.7L7.6 4.74H5.77l10.68 14.43Z" />
+    </svg>
+  );
+}
+
 const glyphs: Record<string, (p: { className?: string }) => React.ReactElement> = {
   Instagram: InstagramGlyph,
   LinkedIn: LinkedInGlyph,
+  Facebook: FacebookGlyph,
+  X: XGlyph,
 };
 
 type Props = {

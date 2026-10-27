@@ -103,7 +103,7 @@ export function ServicesPreview() {
                     alt={s.imageAlt}
                     fill
                     sizes="38vw"
-                    className={`object-cover transition-all duration-[1100ms] ${active === i ? "scale-100 opacity-100" : "scale-110 opacity-0"}`}
+                    className={`img-duotone object-cover transition-all duration-[1100ms] ${active === i ? "scale-100 opacity-100" : "scale-110 opacity-0"}`}
                   />
                 ))}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />

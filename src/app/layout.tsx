@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
@@ -7,17 +7,19 @@ import { Footer } from "@/components/layout/Footer";
 import { Intro } from "@/components/layout/Intro";
 import { site } from "@/data/site";
 
-const display = Cormorant_Garamond({
+// Başlık fontu: Manrope (mimari karakter, güçlü başlıklar)
+const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
+  weight: ["600", "700"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const sans = Inter({
+// Gövde/arayüz fontu: Inter (yüksek okunabilirlik)
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -134,7 +136,7 @@ const gtagInit = site.gaId
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="tr" className={`${display.variable} ${sans.variable}`}>
+    <html lang="tr" className={`${manrope.variable} ${inter.variable}`}>
       <head>
         {/* Google Analytics (gtag.js) — doğrudan head'de, Google'ın beklediği
             standart biçim. Ziyaret ölçümü sayfa açılışında başlar. */}
