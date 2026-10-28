@@ -4,8 +4,17 @@ export const site = {
   legalName: "KUK PROJE MÜHENDİSLİK İNŞAAT TİCARET LİMİTED ŞİRKETİ",
   slogan: "Kaliteyle Kurulur",
   tagline: "Kaliteyle Kurulur.",
+  // Ticari/kayıt bilgileri (fatura, sözleşme ve KVKK aydınlatma metninde kullanılır)
+  mersisNo: "0590139659500001",
+  taxNo: "5901396595",
+  taxOffice: "Tepecik Vergi Dairesi",
+  registry: "Kocaeli Ticaret Sicili Müdürlüğü",
+  kepAddress: "kukprojemuhendislik@hs01.kep.tr",
   // Google Analytics 4 ölçüm kimliği (GA4 Measurement ID)
   gaId: "G-JM9SZ63YJ5",
+  // Google Search Console doğrulama token'ı (meta etiket + /googledc….html)
+  searchConsoleToken: "googledc53ece4919de5fe",
+  siteUrl: "https://kukinsaat.com",
   description:
     "Kocaeli merkezli inşaat ve mühendislik firması KUK İnşaat; mühendislik disiplini, kalite anlayışı ve güvenilirlik ilkeleriyle inşaat sektöründe değer üretir. Teknik uzmanlığı, çağdaş tasarım yaklaşımını ve sürdürülebilirliği bir araya getirerek Kocaeli ve çevresinde her projede nitelikli, kalıcı çözümler geliştirir.",
   locationLabel: "Kocaeli",

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from "@/lib/next-shim";
+import { Image } from "@/lib/next-shim";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { LineReveal } from "@/components/ui/LineReveal";
@@ -16,13 +16,13 @@ export function ProjectsPreview() {
           <div>
             <Reveal variant="left">
               <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-                <span className="h-px w-10 bg-accent" /> Projelerimiz
+                <span className="h-px w-10 bg-accent" /> Çalışma alanlarımız
               </p>
             </Reveal>
             <LineReveal
               as="h2"
               className="mt-6 max-w-2xl text-[clamp(2.2rem,4.5vw,3.6rem)]"
-              lines={["Her detayında mühendislik", "olan yapılar."]}
+              lines={["Mühendislik odağında", "çalışma alanlarımız."]}
             />
           </div>
           <Reveal variant="right" delay={120}>
@@ -103,11 +103,11 @@ export function ProjectsPreview() {
                     <span className="h-px w-8 bg-accent-soft" /> Portföy
                   </p>
                   <p className="mt-6 font-display text-[clamp(1.7rem,2.6vw,2.4rem)] font-semibold leading-tight">
-                    Tamamladığımız işleri yakında burada paylaşacağız.
+                    Proje portföyümüz hazırlanıyor.
                   </p>
                   <p className="mt-4 leading-relaxed text-white/65">
-                    Güncel projelerimiz ve referanslarımız hakkında bilgi almak için
-                    bizimle iletişime geçebilirsiniz.
+                    Şu anda yayımlanmış proje kaydı bulunmuyor. Hizmet kapsamımız ve
+                    çalışma alanlarımız hakkında bilgi almak için bize ulaşabilirsiniz.
                   </p>
                 </div>
                 <Link

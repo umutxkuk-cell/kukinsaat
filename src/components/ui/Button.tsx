@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/lib/next-shim";
 import type { ReactNode } from "react";
 
 type Props = {

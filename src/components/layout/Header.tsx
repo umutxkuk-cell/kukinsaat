@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "@/lib/next-shim";
+import { usePathname } from "@/lib/next-shim";
 import { site } from "@/data/site";
 import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/brand/Social";
@@ -23,17 +21,23 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
+    // Açılış perdesi hâlâ ekranı kilitliyse kilidi devralmıyoruz; aksi hâlde
+    // menü kapanınca perdenin kilidi de yanlışlıkla kaldırılır.
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else if (!document.body.dataset.introLock) {
       document.body.style.overflow = "";
+    }
+    return () => {
+      if (!document.body.dataset.introLock) document.body.style.overflow = "";
     };
-  }, [open ]);
+  }, [open]);
 
   return (
     <>
       <ScrollProgress />
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
           dark
             ? "border-b border-line bg-bg/92 shadow-[0_1px_0_rgba(20,20,20,0.04)] backdrop-blur-md text-ink"
             : "border-b border-white/10 bg-gradient-to-b from-black/45 to-transparent text-white"
@@ -95,7 +99,7 @@ export function Header() {
         </div>
 
         <div
-          className={`overflow-y-auto overscroll-contain transition-[max-height,opacity] duration-500 lg:hidden ${
+          className={`overflow-y-auto overscroll-contain transition-[max-height,opacity] duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
             open ? "max-h-[85vh] opacity-100" : "max-h-0 overflow-hidden opacity-0"
           }`}
         >
@@ -106,7 +110,7 @@ export function Header() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${i * 60}ms` : "0ms" }}
-                className={`flex items-center justify-between border-b border-line/70 py-4 font-display text-3xl transition-all duration-500 ${
+                className={`flex items-center justify-between border-b border-line/70 py-4 font-display text-3xl transition-[transform,opacity] duration-[240ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                   open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
                 }`}
               >

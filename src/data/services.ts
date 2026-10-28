@@ -21,7 +21,7 @@ export const services: Service[] = [
     summary:
       "Konut, ticari ve karma kullanımlı yapıların inşaat sürecini baştan sona yürütüyoruz.",
     description:
-      "Kaba yapıdan ince işlere kadar tüm uygulama kalemlerini kendi ekip ve iş programımızla takip ediyoruz. Saha organizasyonu, malzeme tedariki ve imalat kalitesi, proje başında belirlenen standartlara göre denetlenir. Amacımız, çizimdeki çözümü sahada birebir hayata geçirmek ve uzun ömürlü bir yapı teslim etmektir.",
+      "Kaba yapıdan ince işlere kadar uygulama kalemleri, proje kapsamı ve iş programı doğrultusunda ele alınır. Saha organizasyonu, malzeme tedariki ve imalat kalitesi proje başında belirlenen standartlara göre takip edilir. Amaç, projedeki çözümü sahada uygulanabilir biçimde hayata geçirmek ve uzun ömürlü bir yapı teslim etmektir.",
     scope: [
       "Saha organizasyonu ve uygulama planlaması",
       "Yapı elemanlarının imalat ve montaj koordinasyonu",
@@ -38,7 +38,7 @@ export const services: Service[] = [
     shortTitle: "Mühendislik",
     icon: "engineer",
     summary:
-      "Taşıyıcı sistem ve yapı mühendisliği kararlarını hesap ve saha deneyimine dayandırıyoruz.",
+      "Taşıyıcı sistem ve yapı mühendisliği kararlarını hesaplamalara ve uygulama koşullarına dayandırıyoruz.",
     description:
       "Yapının güvenliği ve performansı, tasarım aşamasında alınan mühendislik kararlarıyla belirlenir. Taşıyıcı sistem tercihleri, detay çözümleri ve uygulama yöntemleri; ilgili yönetmelikler, statik hesaplar ve sahadaki uygulanabilirlik birlikte gözetilerek değerlendirilir.",
     scope: [

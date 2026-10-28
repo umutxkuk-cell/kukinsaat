@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@/lib/next-shim";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Parallax } from "@/components/ui/Parallax";

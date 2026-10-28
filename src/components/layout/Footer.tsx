@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/lib/next-shim";
+import { COOKIE_PREF_EVENT } from "@/components/layout/CookieConsent";
 import { site } from "@/data/site";
 import { services } from "@/data/services";
 import { LogoStacked } from "@/components/brand/Logo";
@@ -14,7 +15,7 @@ export function Footer() {
             <Link href="/iletisim" className="group mt-4 inline-block">
               <span className="font-display text-[clamp(2.4rem,5vw,4.5rem)] leading-none">
                 Birlikte inşa edelim
-                <span className="ml-3 inline-block text-accent-soft transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-1">↗</span>
+                <span className="ml-3 inline-block text-accent-soft transition-transform duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-2 group-hover:-translate-y-1">↗</span>
               </span>
             </Link>
           </div>
@@ -102,8 +103,15 @@ export function Footer() {
           </p>
           <div className="mt-7 flex flex-col gap-3 text-xs text-bg/45 md:flex-row md:items-center md:justify-between">
             <p>© {new Date().getFullYear()} Kuk İnşaat. Tüm hakları saklıdır.</p>
-            <div className="flex gap-6">
-              <Link href="/gizlilik" className="hover:text-white">Gizlilik & KVKK</Link>
+            <div className="flex flex-wrap gap-6">
+              <Link href="/gizlilik" className="hover:text-white">Gizlilik &amp; KVKK</Link>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event(COOKIE_PREF_EVENT))}
+                className="hover:text-white"
+              >
+                Çerez Tercihleri
+              </button>
               <Link href="/iletisim" className="hover:text-white">İletişim</Link>
             </div>
           </div>

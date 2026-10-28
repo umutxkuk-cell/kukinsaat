@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { Image } from "@/lib/next-shim";
+import { Link } from "@/lib/next-shim";
 import { site } from "@/data/site";
 import { LogoMark } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/brand/Social";
@@ -12,16 +10,25 @@ export function Hero() {
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Azaltılmış hareket tercihinde paralaks tamamen devre dışı.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const el = imgRef.current;
+    if (!el) return;
+
+    // transform/opacity dışında hiçbir özellik değişmez; rAF ile sınırlıdır.
     let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        if (imgRef.current) {
-          imgRef.current.style.transform = `translateY(${window.scrollY * 0.22}px) scale(1.05)`;
-        }
-      });
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      el.style.transform = `translate3d(0, ${window.scrollY * 0.22}px, 0) scale(1.18)`;
     };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      raf = requestAnimationFrame(update);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(raf);
@@ -30,7 +37,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate -mt-20 min-h-[108svh] overflow-hidden bg-ink text-white">
+    <section className="relative isolate -mt-20 hero-min-h overflow-hidden bg-ink text-white">
       <div ref={imgRef} className="absolute inset-0 will-change-transform">
         <div className="ken-burns relative h-full w-full">
           <Image
@@ -54,7 +61,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="container-x relative flex min-h-[108svh] flex-col justify-end pb-14 pt-36">
+      <div className="container-x relative flex hero-min-h flex-col justify-end pb-14 pt-36">
         <div className="hero-anim hero-anim-1 flex items-center gap-4">
           <span className="h-px w-12 bg-accent-soft" />
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.34em] text-white/85">
@@ -62,9 +69,12 @@ export function Hero() {
           </p>
         </div>
 
-        <h1 className="mt-8 max-w-4xl text-[clamp(2.6rem,6vw,4.75rem)] font-bold leading-[1.04] tracking-[-0.03em]">
-          <span className="hero-anim hero-anim-2 block">Sağlam yapılar,</span>
-          <span className="hero-anim hero-anim-3 block text-accent-soft">doğru mühendislik</span>
+        <h1
+          aria-label="Sağlam yapılar, doğru mühendislik ile yükselir."
+          className="mt-8 max-w-4xl text-[clamp(2.6rem,6vw,4.75rem)] font-bold leading-[1.04] tracking-[-0.03em]"
+        >
+          <span className="hero-anim hero-anim-2 block">Sağlam yapılar,</span>{" "}
+          <span className="hero-anim hero-anim-3 block text-accent-soft">doğru mühendislik</span>{" "}
           <span className="hero-anim hero-anim-3 block">ile yükselir.</span>
         </h1>
 

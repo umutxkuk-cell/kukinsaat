@@ -1,20 +1,18 @@
-"use client";
-
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from "@/lib/next-shim";
+import { LogoMark } from "@/components/brand/Logo";
+import { Image } from "@/lib/next-shim";
 import { projects, getProjectTypes, type Project } from "@/data/projects";
 
 function EmptyState() {
   return (
     <div className="border border-ink/15 bg-bg-2 px-8 py-16 text-center md:px-16 md:py-24">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/brand/kuk-monogram.svg" alt="" aria-hidden="true" className="mx-auto h-20 w-auto opacity-25" />
-      <h2 className="mt-8 font-display text-[clamp(1.8rem,3.4vw,2.8rem)]">Projelerimiz yakında burada</h2>
+      <LogoMark className="mx-auto h-20 w-auto opacity-25" />
+      <h2 className="mt-8 font-display text-[clamp(1.8rem,3.4vw,2.8rem)]">Proje portföyümüz hazırlanıyor</h2>
       <p className="mx-auto mt-5 max-w-xl leading-relaxed text-muted">
-        Tamamladığımız ve devam eden işlerimizi kısa süre içinde bu bölümde
-        paylaşacağız. Güncel projelerimiz hakkında bilgi almak için bizimle
-        iletişime geçebilirsiniz.
+        Şu anda yayımlanmış proje kaydı bulunmuyor. Gerçek proje bilgileri
+        paylaşılmaya hazır olduğunda bu bölüm güncellenecektir. Hizmet kapsamımız
+        hakkında bilgi almak için bizimle iletişime geçebilirsiniz.
       </p>
       <Link
         href="/iletisim"

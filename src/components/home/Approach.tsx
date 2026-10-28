@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Image } from "@/lib/next-shim";
+import { Link } from "@/lib/next-shim";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
 const values = [
-  { n: "01", t: "Teknik yeterlilik", d: "Kararları statik hesap, detay çözümü ve saha tecrübesine dayandırırız." },
+  { n: "01", t: "Teknik yeterlilik", d: "Kararları statik hesap, detay çözümü ve sahadaki uygulanabilirliğe dayandırırız." },
   { n: "02", t: "Uygulama kalitesi", d: "Malzeme ve işçiliği, proje başında belirlenen standartlara göre denetleriz." },
   { n: "03", t: "Açık iletişim", d: "İş sahibini süreç, bütçe ve ilerleme konusunda düzenli olarak bilgilendiririz." },
 ];

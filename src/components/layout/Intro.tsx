@@ -1,6 +1,5 @@
-"use client";
-
 import { useEffect, useState } from "react";
+import { LogoMark } from "@/components/brand/Logo";
 
 /**
  * Premium açılış perdesi — ilk karede sayfayı kaplar, logoyu gösterir ve
@@ -13,8 +12,15 @@ export function Intro() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const seen = sessionStorage.getItem("kuk-intro-seen");
+    let seen: string | null = null;
+    let reduce = false;
+    try {
+      reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      seen = sessionStorage.getItem("kuk-intro-seen");
+    } catch {
+      // Depolama erişimi engellenseydi perde yine de güvenle kaldırılır.
+      reduce = true;
+    }
 
     if (reduce || seen) {
       // Hareket istenmiyorsa ya da daha önce görüldüyse perdeyi hemen kaldır.
@@ -22,17 +28,24 @@ export function Intro() {
       return () => window.clearTimeout(id);
     }
 
+    document.body.dataset.introLock = "1";
     document.body.style.overflow = "hidden";
-    const t1 = window.setTimeout(() => setDone(true), 1700);
+    const t1 = window.setTimeout(() => setDone(true), 1450);
     const t2 = window.setTimeout(() => {
       setShow(false);
+      delete document.body.dataset.introLock;
       document.body.style.overflow = "";
-      sessionStorage.setItem("kuk-intro-seen", "1");
-    }, 2600);
+      try {
+        sessionStorage.setItem("kuk-intro-seen", "1");
+      } catch {
+        /* yoksay */
+      }
+    }, 2200);
 
     return () => {
       window.clearTimeout(t1);
       window.clearTimeout(t2);
+      delete document.body.dataset.introLock;
       document.body.style.overflow = "";
     };
   }, []);
@@ -43,8 +56,7 @@ export function Intro() {
     <div className={`intro ${done ? "done" : ""}`} aria-hidden="true">
       <div className="flex flex-col items-center">
         <div className="intro-mark">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/kuk-monogram-white.svg" alt="" className="h-24 w-auto sm:h-28" />
+          <LogoMark variant="light" className="h-24 w-auto sm:h-28" />
         </div>
         <span className="intro-line mt-8" />
         <span className="intro-mark mt-6 text-[0.62rem] font-semibold uppercase tracking-[0.58em] text-white/70">
